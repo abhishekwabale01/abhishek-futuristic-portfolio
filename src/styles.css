@@ -74,3 +74,124 @@
         max-width: 100%;
     }
 }
+
+/* AWS & Cloud Services section */
+.aws-section {
+    position: relative;
+    padding-top: 76px;
+    padding-bottom: 55px;
+    z-index: 1;
+}
+
+.aws-grid {
+    display: grid;
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+    gap: 12px;
+    margin-top: 32px;
+}
+
+.aws-card {
+    position: relative;
+    isolation: isolate;
+    overflow: hidden;
+    min-width: 0;
+    min-height: 174px;
+    padding: 20px;
+    border: 1px solid var(--line);
+    border-radius: 11px;
+    background: linear-gradient(
+            145deg,
+            rgba(19, 22, 40, 0.96),
+            rgba(13, 15, 30, 0.96)
+    );
+    transition:
+            border-color 0.25s ease,
+            background 0.25s ease;
+}
+
+.aws-card > * {
+    position: relative;
+    z-index: 1;
+}
+
+.aws-card-top {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    color: var(--violet);
+    margin-bottom: 25px;
+}
+
+.aws-card-top span {
+    color: #72758d;
+    font: 9px 'DM Mono', monospace;
+}
+
+.aws-card h3 {
+    margin: 0 0 7px;
+    font-size: 14px;
+    font-weight: 650;
+    letter-spacing: -0.025em;
+    overflow-wrap: anywhere;
+}
+
+.aws-card-group {
+    margin: 0;
+    color: #8589a1;
+    font: 8px 'DM Mono', monospace;
+    letter-spacing: 0.1em;
+}
+
+.aws-card-description {
+    margin: 14px 0 0;
+    color: var(--muted);
+    font-size: 11px;
+    line-height: 1.7;
+}
+
+.aws-note {
+    display: flex;
+    align-items: flex-start;
+    gap: 10px;
+    margin-top: 24px;
+    color: var(--muted);
+    font-size: 10px;
+    line-height: 1.8;
+}
+
+.aws-note .note-star {
+    color: var(--violet);
+    flex-shrink: 0;
+}
+
+@media (max-width: 900px) {
+    .aws-grid {
+        grid-template-columns: repeat(3, minmax(0, 1fr));
+    }
+}
+
+@media (max-width: 680px) {
+    .aws-section {
+        padding-top: 55px;
+        padding-bottom: 30px;
+    }
+
+    .aws-grid {
+        grid-template-columns: repeat(2, minmax(0, 1fr));
+        gap: 9px;
+        margin-top: 25px;
+    }
+
+    .aws-card {
+        min-height: 165px;
+        padding: 15px;
+    }
+
+    .aws-card h3 {
+        font-size: 12px;
+    }
+
+    .aws-card-description {
+        font-size: 10px;
+    }
+}

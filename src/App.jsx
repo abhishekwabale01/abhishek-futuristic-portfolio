@@ -12,6 +12,52 @@ const skills = [
   { name: 'Git & Maven', group: 'TOOLING', icon: Terminal },
 ]
 
+const cloudServices = [
+  {
+    name: 'Amazon EC2',
+    group: 'COMPUTE',
+    detail: 'Virtual servers and compute',
+    icon: Server,
+  },
+  {
+    name: 'Amazon S3',
+    group: 'STORAGE',
+    detail: 'Object storage',
+    icon: Database,
+  },
+  {
+    name: 'AWS IAM',
+    group: 'SECURITY',
+    detail: 'Identity and access management',
+    icon: Check,
+  },
+  {
+    name: 'Amazon RDS',
+    group: 'DATABASE',
+    detail: 'Managed relational databases',
+    icon: Database,
+  },
+  {
+    name: 'Amazon CloudWatch',
+    group: 'MONITORING',
+    detail: 'Metrics, logs and monitoring',
+    icon: Cpu,
+  },
+  {
+    name: 'Amazon ECS / ECR',
+    group: 'CONTAINERS',
+    detail: 'Container orchestration and registry',
+    icon: Layers3,
+  },
+  {
+    name: 'AWS Lambda',
+    group: 'SERVERLESS',
+    detail: 'Event-driven serverless compute',
+    icon: Code2,
+  },
+]
+
+
 const projects = [
   { id: '01', name: 'OFIS — Farmer Information System', type: 'FIELD DATA · MICROSERVICES', description: 'A field operations platform for collecting farmer and farm data, capturing GPS points, coordinating training activities, and tracking transactions.', stack: ['Java', 'Spring Boot', 'MySQL', 'Kafka'], accent: 'violet', icon: MapPin },
   { id: '02', name: 'Spring Boot REST API', type: 'BACKEND · API DESIGN', description: 'A structured REST API demonstrating layered architecture, DTO-based responses, data persistence, and clear separation of controller, service, and repository logic.', stack: ['Java', 'Spring Boot', 'Spring Data JPA', 'MySQL'], accent: 'cyan', icon: Braces },
@@ -86,6 +132,75 @@ function App() {
         <div className="skill-grid">{skills.map((skill, i) => { const Icon = skill.icon; return <motion.div key={skill.name} className="skill-card" initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .06 }} whileHover={{ y: -5, borderColor: 'rgba(155,140,255,.55)' }}><div className="skill-card-top"><Icon size={19}/><span>{String(i + 1).padStart(2, '0')}</span></div><h3>{skill.name}</h3><p>{skill.group}</p><div className="skill-card-glow"/></motion.div> })}</div>
         <p className="stack-note"><span className="note-star">✳</span> Also familiar with: GitHub · Maven · Postman · IntelliJ IDEA</p>
       </section>
+
+      <section id="cloud" className="section container-shell stack-section cloud-section">
+        <motion.div
+            className="section-heading heading-row"
+            initial="hidden"
+            whileInView="visible"
+            viewport={{ once: true }}
+            variants={fadeUp}
+        >
+          <div>
+            <p className="eyebrow">CLOUD / INFRASTRUCTURE</p>
+            <h2>
+              AWS &amp; <span className="gradient-text">cloud services.</span>
+            </h2>
+          </div>
+          <p className="heading-aside">
+            Cloud infrastructure, storage, security,
+            <br />
+            containers and application monitoring.
+          </p>
+        </motion.div>
+
+        <div className="skill-grid">
+          {cloudServices.map((service, i) => {
+            const Icon = service.icon
+
+            return (
+                <motion.div
+                    key={service.name}
+                    className="skill-card cloud-skill-card"
+                    initial={{ opacity: 0, y: 15 }}
+                    whileInView="visible"
+                    viewport={{ once: true }}
+                    variants={{
+                      visible: {
+                        opacity: 1,
+                        y: 0,
+                        transition: { delay: i * 0.06 },
+                      },
+                    }}
+                    whileHover={{
+                      y: -5,
+                      borderColor: 'rgba(155,140,255,.55)',
+                    }}
+                >
+                  <div className="skill-card-top">
+                    <Icon size={19} />
+                    <span>{String(i + 1).padStart(2, '0')}</span>
+                  </div>
+
+                  <h3>{service.name}</h3>
+                  <p>{service.group}</p>
+
+                  <div className="skill-card-glow" />
+
+                  <span className="cloud-service-detail">
+            {service.detail}
+          </span>
+                </motion.div>
+            )
+          })}
+        </div>
+
+        <p className="stack-note cloud-note">
+          <span className="note-star">✳</span>
+          Cloud skills · AWS infrastructure · Deployment and monitoring
+        </p>
+      </section>
+
 
       <section id="work" className="section container-shell work-section">
         <motion.div className="section-heading heading-row" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}><div><p className="eyebrow">03 / SELECTED WORK</p><h2>Built with <span className="gradient-text">purpose.</span></h2></div><span className="project-count mono-label">02 PROJECTS / CASE FILES</span></motion.div>
