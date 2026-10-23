@@ -33,7 +33,7 @@ function App() {
     <div className="orb orb-one" aria-hidden="true" /><div className="orb orb-two" aria-hidden="true" />
     <header className="nav-wrap">
       <nav className="nav container-shell">
-        <a href="#home" className="brand" onClick={closeMenu}><span className="brand-mark">A<span>.</span></span><span className="brand-name">ABHISHEK<span className="brand-sub">BACKEND ENGINEER</span></span></a>
+        <a href="#home" className="brand" onClick={closeMenu}><span className="brand-mark">A<span>.</span></span><span className="brand-name">ABHISHEK WABALE<span className="brand-sub">BACKEND ENGINEER</span></span></a>
         <div className={`nav-links ${menuOpen ? 'nav-links-open' : ''}`}>
           <a href="#about" onClick={closeMenu}>About</a><a href="#stack" onClick={closeMenu}>Stack</a><a href="#work" onClick={closeMenu}>Projects</a>
           <a href="#contact" className="nav-contact" onClick={closeMenu}>Let’s talk <ArrowUpRight size={15}/></a>
