@@ -10,10 +10,53 @@ const skills = [
   { name: 'MySQL', group: 'DATABASE', icon: Database },
   { name: 'Apache Kafka', group: 'MESSAGING', icon: Cpu },
   { name: 'Git & Maven', group: 'TOOLING', icon: Terminal },
-  {name: 'AWS & Cloud Services', group: 'CLOUD / INFRASTRUCTURE', icon: Layers3},
+  {name: 'AWS & Cloud Services', group: 'CLOUD / INFRASTRUCTURE', icon: Layers3,},
 ]
 
-
+const cloudServices = [
+  {
+    name: 'Amazon EC2',
+    group: 'COMPUTE',
+    detail: 'Virtual servers and compute',
+    icon: Server,
+  },
+  {
+    name: 'Amazon S3',
+    group: 'STORAGE',
+    detail: 'Object storage',
+    icon: Database,
+  },
+  {
+    name: 'AWS IAM',
+    group: 'SECURITY',
+    detail: 'Identity and access management',
+    icon: Check,
+  },
+  {
+    name: 'Amazon RDS',
+    group: 'DATABASE',
+    detail: 'Managed relational databases',
+    icon: Database,
+  },
+  {
+    name: 'Amazon CloudWatch',
+    group: 'MONITORING',
+    detail: 'Metrics, logs and monitoring',
+    icon: Cpu,
+  },
+  {
+    name: 'Amazon ECS / ECR',
+    group: 'CONTAINERS',
+    detail: 'Container orchestration and registry',
+    icon: Layers3,
+  },
+  {
+    name: 'AWS Lambda',
+    group: 'SERVERLESS',
+    detail: 'Event-driven serverless compute',
+    icon: Code2,
+  },
+]
 
 
 const projects = [
