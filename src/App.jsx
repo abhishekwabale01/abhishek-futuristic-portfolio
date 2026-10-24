@@ -160,22 +160,6 @@ function PortfolioHome() {
           <h3>{skill.name}</h3>
           <p>{skill.group}</p>
 
-          {skill.name === 'AWS & Cloud Services' && (
-              <div className="aws-service-tags">
-                {[
-                  'EC2',
-                  'S3',
-                  'IAM',
-                  'RDS',
-                  'CloudWatch',
-                  'ECS / ECR',
-                  'Lambda',
-                ].map((service) => (
-                    <span key={service}>{service}</span>
-                ))}
-              </div>
-          )}
-
           <div className="skill-card-glow"/>
         </motion.div> })}</div>
         <p className="stack-note"><span className="note-star">✳</span> Also familiar with: GitHub · Maven · Postman · IntelliJ IDEA</p>
