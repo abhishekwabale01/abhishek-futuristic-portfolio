@@ -1,3 +1,5 @@
+import { Routes, Route, useNavigate } from 'react-router-dom'
+import SkillDetails from './SkillDetails.jsx'
 import { useState } from 'react'
 import { motion } from 'framer-motion'
 import { ArrowDownRight, ArrowRight, ArrowUpRight, Braces, Check, Code2, Github, Linkedin, Mail, Menu, Server, Terminal, X, Download, Cpu, Database, Layers3, ExternalLink, MapPin } from 'lucide-react'
@@ -66,9 +68,10 @@ const projects = [
 
 const fadeUp = { hidden: { opacity: 0, y: 22 }, visible: { opacity: 1, y: 0, transition: { duration: 0.55, ease: 'easeOut' } } }
 
-function App() {
+function PortfolioHome() {
   const [menuOpen, setMenuOpen] = useState(false)
   const [copied, setCopied] = useState(false)
+  const navigate = useNavigate()
   const email = 'abhishekwabale01@gamil.com'
   const closeMenu = () => setMenuOpen(false)
   const copyEmail = async () => {
@@ -130,7 +133,30 @@ function App() {
 
       <section id="stack" className="section container-shell stack-section">
         <motion.div className="section-heading heading-row" initial="hidden" whileInView="visible" viewport={{ once: true }} variants={fadeUp}><div><p className="eyebrow">02 / TOOLKIT</p><h2>My technical <span className="gradient-text">stack.</span></h2></div><p className="heading-aside">Tools I use to build, connect,<br/>and maintain backend applications.</p></motion.div>
-        <div className="skill-grid">{skills.map((skill, i) => { const Icon = skill.icon; return <motion.div key={skill.name} className="skill-card" initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .06 }} whileHover={{ y: -5, borderColor: 'rgba(155,140,255,.55)' }}><div className="skill-card-top"><Icon size={19}/><span>{String(i + 1).padStart(2, '0')}</span></div>
+        <div className="skill-grid">{skills.map((skill, i) => { const Icon = skill.icon; return <motion.div
+            key={skill.name}
+            className="skill-card"
+            role="link"
+            tabIndex={0}
+            onClick={() => {
+              const slug = {
+                'Java': 'java',
+                'Spring Boot': 'spring-boot',
+                'REST APIs': 'rest-apis',
+                'Microservices': 'microservices',
+                'MySQL': 'mysql',
+                'Apache Kafka': 'apache-kafka',
+                'Git & Maven': 'git-maven',
+                'AWS & Cloud Services': 'aws',
+              }[skill.name]
+
+              if (slug) navigate(`/skills/${slug}`)
+            }}
+            onKeyDown={(event) => {
+              if (event.key === 'Enter') {
+                event.currentTarget.click()
+              }
+            }} initial={{ opacity: 0, y: 15 }} whileInView={{ opacity: 1, y: 0 }} viewport={{ once: true }} transition={{ delay: i * .06 }} whileHover={{ y: -5, borderColor: 'rgba(155,140,255,.55)' }}><div className="skill-card-top"><Icon size={19}/><span>{String(i + 1).padStart(2, '0')}</span></div>
           <h3>{skill.name}</h3>
           <p>{skill.group}</p>
 
@@ -168,6 +194,15 @@ function App() {
     </main>
     <footer className="footer container-shell"><a href="#home" className="footer-brand">A<span>.</span></a><span>DESIGNED & BUILT WITH INTENTION</span><span>© 2026 ABHISHEK WABALE</span><a href="#home" className="back-top">BACK TO TOP ↑</a></footer>
   </div>
+}
+
+function App() {
+  return (
+      <Routes>
+        <Route path="/" element={<PortfolioHome />} />
+        <Route path="/skills/:skillSlug" element={<SkillDetails />} />
+      </Routes>
+  )
 }
 
 export default App
